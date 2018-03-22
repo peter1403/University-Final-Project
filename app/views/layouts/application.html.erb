@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalProject</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="fullPage" class="container-fluid">
+      <div id="mainNav"class="container-fluid">
+        <div class="navButton"id="navToggle">PicturePerfect</div>
+        <%= link_to '#' do %>
+          <div class="navButton">SignIn</div>
+        <% end %>
+      </div>
+      <div id="mainBody"class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,39 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+#fullPage{
+  background-color: grey;
+  height: 100%;
+}
+
+#mainNav {
+  background-color: black;
+  height: 13%;
+
+}
+
+.navButton {
+  background-color: yellow;
+  float: left;
+  width: 50%;
+  height: 100%;
+  border-style: solid;
+  border: 10px, black;
+}
+
+#mainBody {
+  background-color: red;
+  height: 87%;
+}
