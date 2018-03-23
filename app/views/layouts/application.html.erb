@@ -2,21 +2,13 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/rails_default' %>
   </head>
-
   <body>
     <div id="fullPage" class="container-fluid">
-      <div id="mainNav"class="container-fluid">
-        <div class="navButton"id="navToggle">PicturePerfect</div>
-        <%= link_to '#' do %>
-          <div class="navButton">SignIn</div>
-        <% end %>
-      </div>
+      <%= render 'layouts/navBar' %>
       <div id="mainBody"class="container-fluid">
+        <%= render 'layouts/navMenu' %>
         <%= yield %>
       </div>
     </div>
