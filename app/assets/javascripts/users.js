@@ -18,6 +18,7 @@ $(document).ready(function() {
     div = $(this);
     $('#navMenu').toggle();
     div.toggleClass("navOpen")
+    clearTimeout(setTimeoutConst );
   })
 
   $('.modalClick').hover (function() {
