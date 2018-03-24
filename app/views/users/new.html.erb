@@ -1,14 +1,19 @@
 <% provide(:title, "Signup/Login") %>
 <div>
   <%= simple_form_for @user do |f| %>
-  <%= render 'shared/error_messages' %>
-  <%= f.input :username, label: 'Username', placeholder: 'Username' %>
-  <%= f.input :password, label: 'Password', placeholder: 'Password' %>
-  <%= f.input :password_confirmation,
-  label: 'Confirm Password', placeholder: 'Password' %>
-  <%= f.button :submit %>
-<% end %>
+    <%= render 'shared/error_messages' %>
+    <%= f.input :username, label: 'Username', placeholder: 'Username' %>
+    <%= f.input :password, label: 'Password', placeholder: 'Password' %>
+    <%= f.input :password_confirmation,
+    label: 'Confirm Password', placeholder: 'Password' %>
+    <%= f.button :submit %>
+  <% end %>
 </div>
 <div>
-
+  <%= simple_form_for(:session, url: login_path) do |f| %>
+    <%= render 'shared/error_messages' %>
+    <%= f.input :username, label: 'Username', placeholder: 'Username' %>
+    <%= f.input :password, label: 'Password', placeholder: 'Password' %>
+    <%= f.button :submit %>
+  <% end %>
 </div>

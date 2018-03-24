@@ -13,4 +13,40 @@
       </div>
     </div>
   </body>
+  <script>
+  var delay=2700, setTimeoutConst;
+  $('#navToggle').hover (function() {
+    div = $(this);
+    div.addClass("HoverBorder");
+     setTimeoutConst = setTimeout(function(){
+       $('#navMenu').toggle();
+       div.toggleClass("navOpen")
+     }, delay);
+   }, function(){
+     div.removeClass("HoverBorder");
+     clearTimeout(setTimeoutConst );
+  });
+
+  $('#navToggle').click (function(){
+    div = $(this);
+    $('#navMenu').toggle();
+    div.toggleClass("navOpen")
+    clearTimeout(setTimeoutConst );
+  });
+
+  $('.modalClick').hover (function() {
+    div = $(this);
+    div.addClass("HoverBorder");
+    $('.modalClick').click (function() {
+       clearTimeout(setTimeoutConst );
+    });
+     setTimeoutConst = setTimeout(function(){
+       window.location.href =
+        div.parent().attr("href")
+     }, delay);
+   }, function(){
+     div.removeClass("HoverBorder");
+     clearTimeout(setTimeoutConst );
+  });
+  </script>
 </html>
