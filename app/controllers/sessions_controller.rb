@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+
   def new
+    @user = User.new
   end
 
   def create
@@ -8,10 +10,10 @@ class SessionsController < ApplicationController
       # Log the user in and redirect to the user's show page.
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_back_or user
     else
       # Create an error message.
-      render 'users/new'
+      render 'new'
     end
   end
 

@@ -1,5 +1,11 @@
 <% provide(:title, @user.username) %>
 <p>Welcome </p><%= @user.username %>
-<%= link_to logout_url, method: "delete" do %>
-  <div class="">Logout</div>
+<%= @user.description %>
+<% if logged_in? && current_user?(@user) %>
+  <%= link_to edit_user_url(current_user) do %>
+    <div class="">Edit User</div>
+  <% end %>
+  <%= link_to logout_url, method: "delete" do %>
+    <div class="">Logout</div>
+  <% end %>
 <% end %>

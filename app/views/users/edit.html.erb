@@ -1,4 +1,4 @@
-<% provide(:title, "Signup") %>
+<% provide(:title, "Edit user") %>
 <div>
   <%= simple_form_for @user do |f| %>
     <%= render 'shared/error_messages' %>
@@ -11,6 +11,3 @@
     <%= f.button :submit %>
   <% end %>
 </div>
-<%= link_to login_url do %>
-  <div class="">Go to login</div>
-<% end %>
