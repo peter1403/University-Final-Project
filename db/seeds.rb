@@ -19,6 +19,7 @@ users.each do |user|
   12.times do |k|
     name = Faker::RickAndMorty.character
     desc = Faker::RickAndMorty.quote
-    user.contents.create!(name: name, desc: desc)
+    rating = rand(0..230)
+    user.contents.create!(name: name, desc: desc, rating: rating)
   end
 end

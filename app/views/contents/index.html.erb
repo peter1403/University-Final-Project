@@ -1,6 +1,6 @@
 <% provide(:title, 'User content') %>
 <h1> User contents </h1>
-<% if current_user?(@user) %>
+<% if logged_in? && current_user?(@user) %>
   <%= link_to new_user_content_url(@user) do %>
     <div class="modalClick">Add new content</div>
   <% end %>

@@ -5,6 +5,16 @@ class ContentsController < ApplicationController
     @contents = @user.contents.paginate(page: params[:page], :per_page => 3)
   end
 
+  def random
+    rndm = rand(1..Content.count)
+    @content = Content.find(rndm)
+    render 'show'
+  end
+
+  def top
+    @contents = Content.unscoped.all.order!(rating: :desc).paginate(page: params[:page], :per_page => 6)
+  end
+
   def show
     @content = Content.find(params[:id])
   end

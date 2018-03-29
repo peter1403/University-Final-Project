@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get '/siteInfo', to: 'info_pages#siteInfo'
+  get '/about', to: 'info_pages#about'
+  get '/help', to: 'info_pages#help'
+  get '/siteRules', to: 'info_pages#siteRules'
+  get '/random', to: 'contents#random'
+  get '/top', to: 'contents#top'
 
   root 'users#home'
   get '/index', to: 'users#index'
