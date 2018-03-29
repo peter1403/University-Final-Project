@@ -1,8 +1,11 @@
-<%= @content.name %>
-<%= @content.desc %>
-<%= @content.rating.to_s %>
-<%= link_to user_url(@content.user) do %>
-  <div class="modalClick">
-    <%= @content.user.username %>
-  </div>
-<% end %>
+<div>
+  <%= @content.name %>
+  <%= @content.desc %>
+  <%= @content.rating.to_s %>
+  <%= link_to user_url(@content.user) do %>
+    <div class="modalClick">
+      <%= @content.user.username %>
+    </div>
+  <% end %>
+</div>
+<%= render 'comment_section' %>

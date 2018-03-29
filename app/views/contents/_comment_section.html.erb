@@ -1,0 +1,14 @@
+<div>
+  <% if @comments.any? %>
+  <ul>
+    <%= render @comments %>
+  </ul>
+    <%= will_paginate @comments %>
+  <% else %>
+    <p>Content has no comments</p>
+  <% end %>
+  <%= simple_form_for [@content, @comment] do |f| %>
+    <%= f.input :content_text, placeholder: 'Enter comment' %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

@@ -21,5 +21,10 @@ users.each do |user|
     desc = Faker::RickAndMorty.quote
     rating = rand(0..230)
     user.contents.create!(name: name, desc: desc, rating: rating)
+    20.times do |z|
+      content = Faker::Lorem.sentence(4)
+      Content.find(k+1).comments.create!(content_text: content,
+         user_id: user.id)
+    end
   end
 end

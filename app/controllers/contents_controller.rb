@@ -8,6 +8,7 @@ class ContentsController < ApplicationController
   def random
     rndm = rand(1..Content.count)
     @content = Content.find(rndm)
+    @comments = @content.comments.paginate(page: params[:page], :per_page => 8)
     render 'show'
   end
 
@@ -17,6 +18,8 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    @comment = Comment.new
+    @comments = @content.comments.paginate(page: params[:page], :per_page => 8)
   end
 
   def create

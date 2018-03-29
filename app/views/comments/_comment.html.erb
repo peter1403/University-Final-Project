@@ -1,0 +1,5 @@
+<li>
+  <%= comment.user.username %>
+  <%= comment.content_text %>
+  Posted <%= time_ago_in_words(comment.created_at) %>
+</li>
