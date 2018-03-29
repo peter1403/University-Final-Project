@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :contents, dependent: :destroy
   attr_accessor :remember_token
   validates :username, presence: true, length: {maximum: 30},
             uniqueness: true

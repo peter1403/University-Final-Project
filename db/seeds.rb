@@ -13,3 +13,12 @@ User.create!(username:  "Example User",
                password:              password,
                password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+users.each do |user|
+  12.times do |k|
+    name = Faker::RickAndMorty.character
+    desc = Faker::RickAndMorty.quote
+    user.contents.create!(name: name, desc: desc)
+  end
+end

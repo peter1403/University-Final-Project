@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def home
+    @contents = Content.all.order("created_at DESC")
+    .paginate(page: params[:page], :per_page => 8)
   end
 
   def index
@@ -16,6 +18,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    first = @user.contents.first.id
+    second = @user.contents.second.id
+    third = @user.contents.third.id
+    @contents = @user.contents.find(first,second,third)
   end
 
   def create

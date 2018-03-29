@@ -9,3 +9,11 @@
     <div class="">Logout</div>
   <% end %>
 <% end %>
+<% if @contents.any? %>
+  <%= link_to user_contents_url(@user) do %>
+    <div class="">All contents</div>
+    <% end %>
+  <%= render @contents %>
+<% else %>
+  <p>User has no uploaded content</p>
+<% end %>
