@@ -4,6 +4,8 @@
     <%= render 'shared/error_messages' %>
     <%= f.input :name, label: 'Name', placeholder: 'Name' %>
     <%= f.input :desc, label: 'Description', placeholder: 'Description' %>
+    <%= f.input :picture, accept: 'image/jpeg,image/gif,image/png',
+     label: "Add picture" %>
     <%= f.button :submit %>
   <% end %>
 </div>

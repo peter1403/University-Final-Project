@@ -18,10 +18,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    first = @user.contents.first.id
-    second = @user.contents.second.id
-    third = @user.contents.third.id
-    @contents = @user.contents.find(first,second,third)
+    if @user.contents.any?
+      first = @user.contents.first.id
+      second = @user.contents.second.id
+      third = @user.contents.third.id
+      @contents = @user.contents.find(first,second,third)
+    else
+      @contents = nil
+    end
   end
 
   def create
@@ -80,7 +84,8 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:username, :description, :password,
-                                   :password_confirmation)
+                                   :password_confirmation,
+                                 :profile_picture)
     end
 
 end

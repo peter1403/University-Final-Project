@@ -1,11 +1,86 @@
-<div>
-  <%= @content.name %>
-  <%= @content.desc %>
-  <%= @content.rating.to_s %>
-  <%= link_to user_url(@content.user) do %>
-    <div class="modalClick">
-      <%= @content.user.username %>
+<div class="fullImage">
+  <div class="fullImageBox">
+    <%= image_tag @content.picture.url if @content.picture? %>
+  </div>
+  <div class="viewFullSize fullImageExit">
+    Exit
+  </div>
+</div>
+<div id="pictureBox">
+  <div class="nextPrevBox">
+    <%= link_to "/contents/#{
+    if Content.count < @content.id + 1
+        1
+      else
+        @content.id + 1
+      end}" do %>
+      <div class="modalClick nextPrev">
+        Prev
+      </div>
+    <% end %>
+    <div class="nextPrev viewFullSize">
+      View full size
     </div>
-  <% end %>
+  </div>
+  <div id="shownPic">
+    <%= image_tag @content.picture.url if @content.picture? %>
+  </div>
+  <div class="nextPrevBox">
+    <%= link_to "/contents/#{
+      if  @content.id - 1 > 0
+        @content.id - 1
+      else
+        Content.count
+      end}" do %>
+        <div class="modalClick nextPrev">
+          Next
+        </div>
+    <% end %>
+    <%= link_to user_url(@content.user) do %>
+      <div class="modalClick nextPrev">
+        <%= @content.user.username %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <%= render 'comment_section' %>
+<%= render 'picture_menu' %>
+<script>
+$('#commentButton').hover (function() {
+  div = $(this);
+  div.addClass("HoverBorder");
+   setTimeoutConst = setTimeout(function(){
+     $('#commentSection').toggle();
+     $('#pictureBox').toggle();
+     div.toggleClass("navOpen")
+   }, delay);
+ }, function(){
+   div.removeClass("HoverBorder");
+   clearTimeout(setTimeoutConst );
+});
+
+$('#commentButton').click (function(){
+  div = $(this);
+  $('#commentSection').toggle();
+  $('#pictureBox').toggle();
+  div.toggleClass("navOpen")
+  clearTimeout(setTimeoutConst );
+});
+
+$('.viewFullSize').hover (function() {
+  div = $(this);
+  div.addClass("HoverBorder");
+   setTimeoutConst = setTimeout(function(){
+     $('.fullImage').toggle();
+   }, delay);
+ }, function(){
+   div.removeClass("HoverBorder");
+   clearTimeout(setTimeoutConst );
+});
+
+$('.viewFullSize').click (function(){
+  div = $(this);
+  $('.fullImage').toggle();
+  clearTimeout(setTimeoutConst );
+});
+</script>

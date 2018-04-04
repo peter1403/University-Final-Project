@@ -19,7 +19,9 @@
     div = $(this);
     div.addClass("HoverBorder");
      setTimeoutConst = setTimeout(function(){
-       $('#navMenu').toggle();
+       $('#navMenu').slideToggle("fast", function() {
+
+       });
        div.toggleClass("navOpen")
      }, delay);
    }, function(){
@@ -29,7 +31,9 @@
 
   $('#navToggle').click (function(){
     div = $(this);
-    $('#navMenu').toggle();
+    $('#navMenu').slideToggle("fast", function() {
+
+    });
     div.toggleClass("navOpen")
     clearTimeout(setTimeoutConst );
   });

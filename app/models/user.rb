@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true,
   length: { minimum: 4, maximum: 15 }, allow_nil: true
+  mount_uploader :profile_picture, PictureUploader
+  validate :profile_picture
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -35,4 +37,14 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  private
+
+    # Validates the size of an uploaded picture.
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
+
 end

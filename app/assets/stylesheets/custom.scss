@@ -29,7 +29,7 @@ html, body, {
 
 #mainNav {
   background-color: black;
-  height: 13%;
+  height: 11%;
 
 }
 
@@ -37,7 +37,7 @@ html, body, {
 
 }
 
-#navToggle.navOpen {
+.navOpen {
   background-color: black;
   color: white;
 }
@@ -50,7 +50,7 @@ html, body, {
 
 #mainBody {
   background-color: red;
-  height: 87%;
+  height: 89%;
   position: relative;
 }
 
@@ -92,6 +92,111 @@ a:hover {
   border-color: white;
 }
 
+/* picture css */
+
+#pictureBox {
+  width: 100%;
+  height: 85%;
+  background-color: green;
+}
+
+.nextPrevBox {
+  height: 100%;
+  width: 15%;
+  float: left;
+}
+
+.nextPrev {
+  height: 50%;
+  width: 100%;
+}
+
+#shownPic {
+  height: 100%;
+  width: 70%;
+  float: left;
+}
+#pictureMenu {
+  width: 100%;
+  height: 15%;
+  background-color: gray;
+}
+
+#pictureBox img {
+  max-height: 100%;
+  max-width: 100%;
+  display: block; /*for the img inside your div */
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pictureMenuButton {
+  float: left;
+  width: 25%;
+  height: 100%;
+  background-color: blue;
+  border-right: 1px solid black;
+}
+
+#picInfo {
+  width: 40%;
+}
+#picRating {
+  width: 10%;
+}
+.picVote {
+  height: 50%;
+}
+
+.fullImage {
+  width: 100%;
+  height: 113%;
+  position: absolute;
+  display: none;
+  bottom: 0%;
+}
+
+.fullImageBox {
+  height: 100%;
+  width: 90%;
+  background-color: rgba(0,0,0,0.5);
+  float: left;
+}
+
+.fullImageBox img {
+  max-height: 100%;
+  max-width: 100%;
+  display: block; /*for the img inside your div */
+  margin: auto;
+}
+
+.fullImageExit {
+  height: 100%;
+  width: 10%;
+  background-color: white;
+  float: left;
+}
+
+#commentSection {
+  width: 100%;
+  height: 85%;
+  background-color: purple;
+  display: none;
+}
+
+#yesProfile {
+  border: 2px solid white;
+  width: 160px;
+  height: 160px;
+}
+
+#noProfile {
+  background-color: gray;
+  border: 2px solid white;
+  width: 180px;
+  height: 180px;
+}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -123,5 +228,3 @@ p {
   width: 100%;
   background-color: grey;
 }
-
-/* pagination */

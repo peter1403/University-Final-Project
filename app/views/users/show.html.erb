@@ -1,5 +1,21 @@
 <% provide(:title, @user.username) %>
-<p>Welcome </p><%= @user.username %>
+<div class="fullImage">
+  <div class="fullImageBox">
+    <%= image_tag @user.profile_picture.url if @user.profile_picture? %>
+  </div>
+  <div class="viewFullSize fullImageExit">
+    Exit
+  </div>
+</div>
+<p><%= @user.username %></p>
+<% if @user.profile_picture? %>
+  <div class="viewFullSize" id="yesProfile" style="background-image:url(<%= @user.profile_picture.url(:thumb) %>); background-size:cover;">
+  </div>
+<% else %>
+  <div id="noProfile">
+    No profile picture
+  </div>
+<% end %>
 <%= @user.description %>
 <% if logged_in? && current_user?(@user) %>
   <%= link_to edit_user_url(current_user) do %>
@@ -9,11 +25,36 @@
     <div class="">Logout</div>
   <% end %>
 <% end %>
-<% if @contents.any? %>
+<h1>User contents</h1>
+<% if logged_in? && current_user?(@user) %>
+  <%= link_to new_user_content_url(@user) do %>
+    <div class="modalClick">Add new content</div>
+  <% end %>
+<% end %>
+<% if @contents != nil %>
   <%= link_to user_contents_url(@user) do %>
-    <div class="">All contents</div>
+    <div class="modalClick">All contents</div>
     <% end %>
   <%= render @contents %>
 <% else %>
   <p>User has no uploaded content</p>
 <% end %>
+
+<script>
+$('.viewFullSize').hover (function() {
+  div = $(this);
+  div.addClass("HoverBorder");
+   setTimeoutConst = setTimeout(function(){
+     $('.fullImage').toggle();
+   }, delay);
+ }, function(){
+   div.removeClass("HoverBorder");
+   clearTimeout(setTimeoutConst );
+});
+
+$('.viewFullSize').click (function(){
+  div = $(this);
+  $('.fullImage').toggle();
+  clearTimeout(setTimeoutConst );
+});
+</script>

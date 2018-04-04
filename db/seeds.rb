@@ -1,12 +1,27 @@
-User.create!(username:  "Example User",
+User.create!(username:  "Peter1403",
             description: "I am the first user",
              password:              "foobar",
              password_confirmation: "foobar",
+             profile_picture: File.open(Rails.root + "app/assets/images/profilepic1.jpeg"),
              admin: true)
 
-99.times do |n|
+User.create!(username:  "Admin User First",
+            description: "I am the second user",
+              password:              "foobar",
+              password_confirmation: "foobar",
+              profile_picture: File.open(Rails.root + "app/assets/images/profilepic2.jpeg"),
+              admin: true)
+
+User.create!(username:  "Admin User Second",
+            description: "I am the third user",
+            password:              "foobar",
+            password_confirmation: "foobar",
+            profile_picture: File.open(Rails.root + "app/assets/images/profilepic3.jpeg"),
+            admin: true)
+
+30.times do |n|
   name  = Faker::Name.name
-  description = "I am user number #{n}"
+  description = "I am user number #{n+4}"
   password = "password"
   User.create!(username:  name,
                description: description,
@@ -16,11 +31,12 @@ end
 
 users = User.order(:created_at).take(6)
 users.each do |user|
-  12.times do |k|
+  4.times do |k|
     name = Faker::RickAndMorty.character
     desc = Faker::RickAndMorty.quote
     rating = rand(0..230)
-    user.contents.create!(name: name, desc: desc, rating: rating)
+    pic = File.open(Rails.root + "app/assets/images/contentpic#{rand(1..10)}.jpg")
+    user.contents.create!(name: name, desc: desc, rating: rating, picture: pic)
     20.times do |z|
       content = Faker::Lorem.sentence(4)
       Content.find(k+1).comments.create!(content_text: content,

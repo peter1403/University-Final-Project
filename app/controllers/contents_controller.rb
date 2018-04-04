@@ -8,6 +8,7 @@ class ContentsController < ApplicationController
   def random
     rndm = rand(1..Content.count)
     @content = Content.find(rndm)
+    @comment = Comment.new
     @comments = @content.comments.paginate(page: params[:page], :per_page => 8)
     render 'show'
   end
@@ -46,6 +47,6 @@ class ContentsController < ApplicationController
   private
 
     def content_params
-      params.require(:content).permit(:name, :desc)
+      params.require(:content).permit(:name, :desc, :picture)
     end
 end

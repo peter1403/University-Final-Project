@@ -8,6 +8,9 @@
     <%= f.input :password, label: 'Password', placeholder: 'Password' %>
     <%= f.input :password_confirmation,
     label: 'Confirm Password', placeholder: 'Password' %>
+    <%= f.input :profile_picture,
+     accept: 'image/jpeg,image/gif,image/png',
+     label: "Add profile picture" %>
     <%= f.button :submit %>
   <% end %>
 </div>

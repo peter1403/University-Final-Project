@@ -1,0 +1,16 @@
+<div id="pictureMenu">
+  <div class="pictureMenuButton" id="picInfo">
+    <%= @content.name %>
+    <%= @content.desc %>
+  </div>
+  <div class="pictureMenuButton" id="picRating">
+    <%= @content.rating.to_s %>
+  </div>
+  <div class="pictureMenuButton">
+    <div class="picVote">Vote up</div>
+    <div class="picVote">Vote down</div>
+  </div>
+  <div class="pictureMenuButton" id="commentButton">
+    Comment section
+  </div>
+</div>
