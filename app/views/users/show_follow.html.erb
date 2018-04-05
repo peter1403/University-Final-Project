@@ -1,0 +1,8 @@
+<% provide(:title, @title) %>
+<h1><%= @title %></h1>
+<% if @users.any? %>
+  <%= render @users %>
+  <%= will_paginate %>
+<% else %>
+  <p>No users to show!</p>
+<% end %>

@@ -1,10 +1,18 @@
-<li>
-  <%= link_to user.username, user %>
-  <% if logged_in? %>
-    <% if current_user.admin? && !current_user?(user) %>
+<%= link_to user do %>
+  <div class="modalClick userIndex">
+    <% if user.profile_picture? %>
+      <div class="indexPic"style="background-image:url(<%= user.profile_picture.url(:thumb) %>); background-size:cover;">
+      </div>
+    <% else %>
+      <div class="indexPic">
+        No profile picture
+      </div>
+    <% end %>
+    <%= user.username %>
+    <%= user.description %>
+    <% if logged_in? && current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", user, method: :delete,
                       data: { confirm: "You sure?" } %>
     <% end %>
-  <% end %>
-
-</li>
+  </div>
+<% end %>

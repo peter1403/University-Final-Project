@@ -16,6 +16,13 @@
     No profile picture
   </div>
 <% end %>
+<%= link_to following_user_path(@user) do %>
+  <div><%= @user.following.count %> following</div>
+<% end %>
+<%= link_to followers_user_path(@user) do %>
+  <div><%= @user.followers.count %> followers</div>
+<% end %>
+<%= render 'follow_form' if logged_in? %>
 <%= @user.description %>
 <% if logged_in? && current_user?(@user) %>
   <%= link_to edit_user_url(current_user) do %>
