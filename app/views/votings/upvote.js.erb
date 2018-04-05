@@ -1,0 +1,3 @@
+$("#picRating").html('<%= @content.weighted_score %>');
+$("#voteUpDiv").html('<%= escape_javascript(render('contents/upvote_blank')) %>')
+$("#voteDownDiv").html('<%= escape_javascript(render('contents/downvote')) %>')

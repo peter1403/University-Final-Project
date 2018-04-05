@@ -18,6 +18,7 @@ gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'acts_as_votable'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

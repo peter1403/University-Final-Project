@@ -4,11 +4,28 @@
     <%= @content.desc %>
   </div>
   <div class="pictureMenuButton" id="picRating">
-    <%= @content.rating.to_s %>
+    <%= @content.weighted_score %>
   </div>
   <div class="pictureMenuButton">
-    <div class="picVote">Vote up</div>
-    <div class="picVote">Vote down</div>
+    <% if logged_in? %>
+      <div id="voteUpDiv">
+        <% if current_user.voted_up_on? @content %>
+          <%= render 'upvote_blank' %>
+        <% else %>
+          <%= render 'upvote' %>
+        <% end %>
+      </div>
+      <div id="voteDownDiv">
+        <% if current_user.voted_down_on? @content %>
+          <%= render 'downvote_blank' %>
+        <% else %>
+          <%= render 'downvote' %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= render 'upvote_blank' %>
+      <%= render 'downvote_blank' %>
+    <% end %>
   </div>
   <div class="pictureMenuButton" id="commentButton">
     Comment section

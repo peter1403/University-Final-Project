@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :users do
     resources :contents, shallow: true do
+      member do
+        put "like", to: "votings#upvote"
+        put "dislike", to: "votings#downvote"
+      end
       resources :comments, only: [:create, :destroy]
     end
     member do

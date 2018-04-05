@@ -14,7 +14,7 @@ class ContentsController < ApplicationController
   end
 
   def top
-    @contents = Content.unscoped.all.order!(rating: :desc).paginate(page: params[:page], :per_page => 6)
+    @contents = Content.unscoped.all.order!(cached_weighted_score: :desc).paginate(page: params[:page], :per_page => 6)
   end
 
   def show

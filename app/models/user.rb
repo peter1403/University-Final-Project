@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_voter
   has_many :comments, dependent: :destroy
   has_many :contents, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",

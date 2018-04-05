@@ -3,7 +3,6 @@ class CreateContents < ActiveRecord::Migration[5.1]
     create_table :contents do |t|
       t.string :name
       t.text :desc
-      t.integer :rating, default: 0
       t.references :user, foreign_key: true
 
       t.timestamps

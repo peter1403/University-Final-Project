@@ -34,9 +34,8 @@ users.each do |user|
   4.times do |k|
     name = Faker::RickAndMorty.character
     desc = Faker::RickAndMorty.quote
-    rating = rand(0..230)
     pic = File.open(Rails.root + "app/assets/images/contentpic#{rand(1..10)}.jpg")
-    user.contents.create!(name: name, desc: desc, rating: rating, picture: pic)
+    user.contents.create!(name: name, desc: desc, picture: pic)
     20.times do |z|
       content = Faker::Lorem.sentence(4)
       Content.find(k+1).comments.create!(content_text: content,

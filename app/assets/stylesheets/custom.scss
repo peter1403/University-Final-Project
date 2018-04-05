@@ -145,8 +145,17 @@ a:hover {
 #picRating {
   width: 10%;
 }
-.picVote {
+
+#voteUpDiv {
   height: 50%;
+}
+
+#voteDownDiv {
+  height: 50%;
+}
+
+.picVote {
+  height: 100%;
 }
 
 .userIndex {
