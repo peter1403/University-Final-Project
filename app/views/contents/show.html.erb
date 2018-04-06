@@ -6,50 +6,29 @@
     Exit
   </div>
 </div>
-<div id="pictureBox">
-  <div class="nextPrevBox">
-    <%= link_to "/contents/#{
-    if Content.count < @content.id + 1
-        1
-      else
-        @content.id + 1
-      end}" do %>
-      <div class="modalClick nextPrev">
-        Prev
-      </div>
-    <% end %>
-    <div class="nextPrev viewFullSize">
-      View full size
-    </div>
-  </div>
-  <div id="shownPic">
-    <%= image_tag @content.picture.url if @content.picture? %>
-  </div>
-  <div class="nextPrevBox">
-    <%= link_to "/contents/#{
-      if  @content.id - 1 > 0
-        @content.id - 1
-      else
-        Content.count
-      end}" do %>
-        <div class="modalClick nextPrev">
-          Next
-        </div>
-    <% end %>
-    <%= link_to user_url(@content.user) do %>
-      <div class="modalClick nextPrev">
-        <%= @content.user.username %>
-      </div>
-    <% end %>
-  </div>
+<div id="showContain">
+  <%= render 'pictureBox' %>
+  <%= render 'comment_section' %>
 </div>
-<%= render 'comment_section' %>
 <%= render 'picture_menu' %>
 <script>
+if(typeof comment == 'undefined'){
+  comment = 0
+}
+if(comment == 1) {
+  $('#pictureBox').toggle();
+  $('#commentSection').toggle();
+  $('#commentButton').toggleClass("navOpen")
+}
 $('#commentButton').hover (function() {
   div = $(this);
   div.addClass("HoverBorder");
    setTimeoutConst = setTimeout(function(){
+     if(comment==0) {
+       comment = 1
+     } else {
+       comment = 0
+     }
      $('#commentSection').toggle();
      $('#pictureBox').toggle();
      div.toggleClass("navOpen")
@@ -60,6 +39,11 @@ $('#commentButton').hover (function() {
 });
 
 $('#commentButton').click (function(){
+  if(comment==0) {
+    comment = 1
+  } else {
+    comment = 0
+  }
   div = $(this);
   $('#commentSection').toggle();
   $('#pictureBox').toggle();

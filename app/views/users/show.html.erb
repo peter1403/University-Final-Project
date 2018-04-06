@@ -20,7 +20,7 @@
   <div><%= @user.following.count %> following</div>
 <% end %>
 <%= link_to followers_user_path(@user) do %>
-  <div><%= @user.followers.count %> followers</div>
+  <div id="followers"><%= @user.followers.count %> followers</div>
 <% end %>
 <%= render 'follow_form' if logged_in? %>
 <%= @user.description %>

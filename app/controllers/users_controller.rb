@@ -5,11 +5,11 @@ class UsersController < ApplicationController
 
   def home
     @contents = Content.all.order("created_at DESC")
-    .paginate(page: params[:page], :per_page => 8)
+    .page(params[:page]).per(3)
   end
 
   def index
-    @users = User.paginate(page: params[:page], :per_page => 8)
+    @users = User.page(params[:page]).per(3)
   end
 
   def new
@@ -19,14 +19,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page], :per_page => 6)
+    @users = @user.page(params[:page]).per(3)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page], :per_page => 6)
+    @users = @user.page(params[:page]).per(3)
     render 'show_follow'
   end
 

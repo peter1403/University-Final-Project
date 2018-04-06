@@ -1,3 +1,14 @@
 <h1>Top rated pictures</h1>
 <%= render @contents %>
-<%= will_paginate %>
+<div class="paginationSite">
+  <%= link_to path_to_prev_page(@contents) do %>
+    <div class="modalClick pageButton">
+      Prev
+    </div>
+  <% end %>
+  <%= link_to path_to_next_page(@contents) do %>
+    <div class="modalClick pageButton">
+      Next
+    </div>
+  <% end %>
+</div>
