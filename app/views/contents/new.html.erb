@@ -2,7 +2,7 @@
 <div>
   <%= simple_form_for [@user, @content] do |f| %>
     <%= render 'shared/error_messages' %>
-    <%= f.input :name, label: 'Name', placeholder: 'Name' %>
+    <%= f.input :name, label: 'Name', placeholder: 'Name', class: 'keyboardOpen' %>
     <%= f.input :desc, label: 'Description', placeholder: 'Description' %>
     <%= f.input :picture, accept: 'image/jpeg,image/gif,image/png',
      label: "Add picture" %>
