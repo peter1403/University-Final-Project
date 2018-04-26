@@ -1,16 +1,18 @@
 <div id="commentSection">
   <div id="commentBlock">
-    <% if @comments.any? %>
-      <ul>
+    <div class="comments">
+      <% if @comments.any? %>
         <%= render @comments %>
-      </ul>
-    <% else %>
-      <p>Content has no comments</p>
-    <% end %>
-    <%= simple_form_for [@content, @comment] do |f| %>
-      <%= f.input :content_text, placeholder: 'Enter comment' %>
-      <%= f.button :submit %>
-    <% end %>
+      <% else %>
+        <p>Content has no comments</p>
+      <% end %>
+    </div>
+    <div class="commentForm">
+      <%= simple_form_for [@content, @comment] do |f| %>
+        <%= f.input :content_text, label: false, placeholder: 'Enter comment', input_html: { class: 'commentText'}%>
+        <%= f.button :submit%>
+      <% end %>
+    </div>
   </div>
   <div style="height: 15%; width: 100%;">
     <%= link_to path_to_prev_page(@comments) do %>

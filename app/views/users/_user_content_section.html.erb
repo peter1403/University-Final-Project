@@ -1,0 +1,23 @@
+<div class="userContentBox">
+  <div class="contentPreviewBox">
+    <% if @contents != nil %>
+      <% @contents.each do |content| %>
+        <%= link_to content do %>
+          <div class="modalClick picPreviewContain">
+            <%= image_tag content.picture.url(:thumb) %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>User has no uploaded content</p>
+    <% end %>
+  </div>
+  <%= link_to user_contents_url(@user) do %>
+    <div class="modalClick contentButton">All contents</div>
+  <% end %>
+  <% if logged_in? && current_user?(@user) %>
+    <%= link_to new_user_content_url(@user) do %>
+      <div class="modalClick contentButton">Add new content</div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,5 +1,9 @@
-<h1>Top rated pictures</h1>
-<%= render @contents %>
+<div class="pageTitle">
+  Recently uploaded
+</div>
+<div class="contentBox">
+  <%= render @contents %>
+</div>
 <div class="paginationSite">
   <%= link_to path_to_prev_page(@contents) do %>
     <div class="modalClick pageButton">

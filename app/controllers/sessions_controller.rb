@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    @user = User.new
+    
   end
 
   def create
@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       redirect_back_or user
     else
       # Create an error message.
+      @user = User.new
       render 'new'
     end
   end

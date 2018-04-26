@@ -1,18 +1,21 @@
-<%= link_to user do %>
-  <div class="modalClick userIndex">
+<div class="userIndex">
+  <%= link_to user do %>
     <% if user.profile_picture? %>
-      <div class="indexPic"style="background-image:url(<%= user.profile_picture.url(:thumb) %>); background-size:cover;">
+      <div class="modalClick indexPic">
+        <img src="<%= user.profile_picture.url(:thumb) %>">
       </div>
     <% else %>
-      <div class="indexPic">
+      <div class="modalClick indexPic">
         No profile picture
       </div>
     <% end %>
-    <%= user.username %>
-    <%= user.description %>
+  <% end %>
+  <div class="userInfo">
+    <h3><%= user.username %></h3>
+    <p><%= user.description %></p>
     <% if logged_in? && current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                      data: { confirm: "You sure?" } %>
+    | <p><%= link_to "delete", user, method: :delete,
+                      data: { confirm: "You sure?" } %></p>
     <% end %>
   </div>
-<% end %>
+</div>

@@ -1,8 +1,12 @@
-<%= link_to content do %>
-  <div class="modalClick contentPreview">
-    <%= image_tag content.picture.url(:thumb) %>
-    <%= content.name %>
-    <%= content.desc %>
-    <%= content.weighted_score %>
+<div class="userIndex">
+    <%= link_to content do %>
+      <div class="modalClick indexPic">
+        <%= image_tag content.picture.url(:thumb) %>
+      </div>
+    <% end %>
+  <div class="userInfo">
+    <h3><%= content.name %></h3>
+    <p><%= content.desc %></p>
+    <p><%= content.weighted_score %></p>
   </div>
-<% end %>
+</div>

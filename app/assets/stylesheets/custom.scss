@@ -165,20 +165,21 @@ a:hover {
 
 .userIndex {
   width: 48%;
-  height: 15%;
+  height: 45%;
   margin: 10px;
   float: left;
 }
 
 .indexPic {
   height: 100%;
-  width: 15%;
+  width: 50%;
   background-color: gray;
-  background-size: cover;
+  background-size: contain;
   float: left;
 }
 
 .indexPic img {
+  object-fit: fill;
   height: 100%;
   width: 100%;
 }
@@ -268,10 +269,232 @@ p {
   background-color: grey;
 }
 
+.pageTitle {
+  height: 9%;
+  width: 100%;
+  background-color: purple;
+  top: 0;
+}
+
+.contentBox {
+  height: 76%;
+  width: 100%;
+}
+
+/* userPage */
+
+.userContentBox {
+  width: 100%;
+  height: 50%;
+}
+
+.userInfoBox {
+  width: 100%;
+  height: 50%;
+}
+
+.userInfoBlock {
+  width: 50%;
+  height: 100%;
+  float: left;
+  border: 1px solid black;
+}
+
+.userInfoButton {
+  width: 45%;
+  height: 45%;
+  float: left;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.userInfoBlockSection {
+  height: 65%;
+  margin: 10px;
+  float: left;
+}
+
+#follow_form {
+  width: 95%;
+  height: 30%;
+  float: left;
+  margin: 5px;
+}
+
+.followDButton {
+  width: 100%;
+  height: 60px;
+}
+
+.formFollow {
+  color: white;
+  background-color: blue;
+  font-size: 30px;
+}
+
+.formUnFollow {
+  background-color: red;
+  color: black;
+  font-size: 30px;
+}
+
+.contentPreviewBox {
+  height: 99%;
+  width: 48%;
+  float: left;
+  margin: 2px;
+}
+
+.picPreviewContain {
+  width: 48%;
+  height: 49%;
+  margin: 2px;
+  float: left;
+}
+
+.picPreviewContain img {
+  width: 100%;
+  height: 100%;
+}
+
+.contentButton {
+  height: 80%;
+  width: 25%;
+  float: left;
+}
+
+/* forms */
+.formBoxContainer {
+  width: 100%;
+  height: 100%;
+}
+.formBox {
+  width: 65%;
+  height: 100%;
+  margin: 10px;
+  float: left;
+}
+.formBox form {
+  width: 100%;
+  height: 100%;
+}
+
+.form-group {
+  width: 40%;
+  height: 25%;
+  float: left;
+}
+
+.form-group .form-control {
+  height: 80%;
+  width: 90%;
+}
+
+.form-group label {
+
+}
+
+.formBox .btn {
+  height: 25%;
+  width: 35%;
+  margin: 10px;
+}
+
+.fileSelect {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+.errorBox {
+  width: 30%;
+  height: 70%;
+  margin: 20px;
+  float: left;
+}
+
+.addFormButtons {
+  width: 30%;
+  height: 25%;
+  margin: 10px;
+  float: left;
+  border: 1px solid black;
+}
+
+#session_remember_me {
+  width: 100px;
+  height: 100px;
+  float: left;
+  position: relative;
+  top: 30px;
+  left: 55%;
+}
+
+#commentBlock {
+  height: 85%;
+  width: 100%;
+}
+
+.comments {
+  height: 75%;
+  width: 100%;
+  background-color: white;
+}
+
+.commentForm {
+  height: 25%;
+  width: 100%;
+  background-color: silver;
+}
+
+.commentForm form {
+  height: 100%;
+  width: 100%;
+}
+
+.commentForm form div {
+  height: 100%;
+  width: 50%;
+  margin: 2px;
+}
+
+.commentForm form div input {
+  height: 90%;
+  width: 90%;
+  margin: 2px;
+}
+
+.commentForm form input {
+  height: 90%;
+  width: 45%;
+  margin-left: 2px;
+}
+.comment {
+  height: 12.5%;
+  width: 100%;
+  background-color: pink;
+}
+
+.commentTxt {
+  width: 65%;
+  height: 100%;
+  float: left;
+}
+
+.commentUsername {
+  width: 15%;
+  height: 100%;
+  float: left;
+}
+
+.commentTime {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
 /* paginate */
 
 .paginationSite {
-  height: 12%;
+  height: 14%;
   width: 100%;
   position: fixed;
   bottom: 0;

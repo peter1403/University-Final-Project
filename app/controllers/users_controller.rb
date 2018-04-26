@@ -5,11 +5,11 @@ class UsersController < ApplicationController
 
   def home
     @contents = Content.all.order("created_at DESC")
-    .page(params[:page]).per(3)
+    .page(params[:page]).per(4)
   end
 
   def index
-    @users = User.page(params[:page]).per(3)
+    @users = User.page(params[:page]).per(4)
   end
 
   def new
@@ -19,24 +19,21 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.page(params[:page]).per(3)
+    @users = @user.following.page(params[:page]).per(4)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.page(params[:page]).per(3)
+    @users = @user.followers.page(params[:page]).per(4)
     render 'show_follow'
   end
 
   def show
     @user = User.find(params[:id])
     if @user.contents.any?
-      first = @user.contents.first.id
-      second = @user.contents.second.id
-      third = @user.contents.third.id
-      @contents = @user.contents.find(first,second,third)
+      @contents = @user.contents.all.limit(4)
     else
       @contents = nil
     end

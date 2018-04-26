@@ -1,0 +1,35 @@
+<div class="userInfoBox">
+  <div class="userInfoBlock">
+    <div class="userInfoBlockSection">
+      <% if @user.profile_picture? %>
+        <div class="viewFullSize userIndex" id="yesProfile" style="background-image:url(<%= @user.profile_picture.url(:thumb) %>); background-size:cover;">
+        </div>
+      <% else %>
+        <div id="noProfile" class="userIndex">
+          No profile picture
+        </div>
+      <% end %>
+    </div>
+    <div class="userInfoBlockSection">
+      <h3><%= @user.username %></h3>
+      <p><%= @user.description %></p>
+    </div>
+    <%= render 'follow_form' if logged_in? %>
+  </div>
+  <div class="userInfoBlock">
+    <%= link_to following_user_path(@user) do %>
+      <div class="userInfoButton"><%= @user.following.count %> following</div>
+    <% end %>
+    <%= link_to followers_user_path(@user) do %>
+      <div class="userInfoButton"><%= @user.followers.count %> followers</div>
+    <% end %>
+    <% if logged_in? && current_user?(@user) %>
+      <%= link_to edit_user_url(current_user) do %>
+        <div class="userInfoButton">Edit User</div>
+      <% end %>
+      <%= link_to logout_url, method: "delete" do %>
+        <div class="userInfoButton">Logout</div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

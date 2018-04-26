@@ -1,11 +1,15 @@
 <% provide(:title, "Add content") %>
-<div>
-  <%= simple_form_for [@user, @content] do |f| %>
-    <%= render 'shared/error_messages' %>
-    <%= f.input :name, label: 'Name', placeholder: 'Name', class: 'keyboardOpen' %>
-    <%= f.input :desc, label: 'Description', placeholder: 'Description' %>
-    <%= f.input :picture, accept: 'image/jpeg,image/gif,image/png',
-     label: "Add picture" %>
-    <%= f.button :submit %>
+<div class="formBoxContainer">
+  <div class="formBox">
+    <%= simple_form_for [@user, @content] do |f| %>
+      <%= f.input :name, label: 'Name', placeholder: 'Name', class: 'keyboardOpen', :error => false %>
+      <%= f.input :desc, label: 'Description', placeholder: 'Description', :error => false %>
+      <%= f.input :picture, accept: 'image/jpeg,image/gif,image/png',
+       label: "Add picture", :error => false %>
+      <%= f.button :submit %>
+  </div>
+    <div class="errorBox">
+      <%= render 'shared/error_messages', object: f.object %>
+    </div>
   <% end %>
 </div>

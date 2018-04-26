@@ -1,8 +1,21 @@
 <% provide(:title, @title) %>
-<h1><%= @title %></h1>
+<div class="pageTitle"><%= @title %></div>
 <% if @users.any? %>
-  <%= render @users %>
-  <%= will_paginate %>
+  <div class="contentBox">
+    <%= render @users %>
+  </div>
+  <div class="paginationSite">
+    <%= link_to path_to_prev_page(@users) do %>
+      <div class="modalClick pageButton">
+        Prev
+      </div>
+    <% end %>
+    <%= link_to path_to_next_page(@users) do %>
+      <div class="modalClick pageButton">
+        Next
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <p>No users to show!</p>
 <% end %>

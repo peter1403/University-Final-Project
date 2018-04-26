@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: {maximum: 30},
             uniqueness: true
+  validates :description, length: {maximum: 200}
   has_secure_password
   validates :password, presence: true,
   length: { minimum: 4, maximum: 15 }, allow_nil: true

@@ -1,13 +1,20 @@
 <% provide(:title, "Edit user") %>
-<div>
-  <%= simple_form_for @user do |f| %>
-    <%= render 'shared/error_messages' %>
-    <%= f.input :username, label: 'Username', placeholder: 'Username' %>
-    <%= f.input :description, label: 'Description',
-     placeholder: 'Description' %>
-    <%= f.input :password, label: 'Password', placeholder: 'Password' %>
-    <%= f.input :password_confirmation,
-    label: 'Confirm Password', placeholder: 'Password' %>
-    <%= f.button :submit %>
+<div class="formBoxContainer">
+  <div class="formBox">
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :username, label: 'Username', placeholder: 'Username', :error => false %>
+      <%= f.input :description, label: 'Description',
+       placeholder: 'Description', :error => false %>
+      <%= f.input :password, label: 'Password', placeholder: 'Password', :error => false %>
+      <%= f.input :password_confirmation,
+      label: 'Confirm Password', placeholder: 'Password', :error => false %>
+      <%= f.input :profile_picture,
+       accept: 'image/jpeg,image/gif,image/png',
+       label: "Add profile picture", input_html: { class: 'fileSelect'} %>
+      <%= f.button :submit %>
+  </div>
+    <div class="errorBox">
+      <%= render 'shared/error_messages', object: f.object%>
+    </div>
   <% end %>
 </div>

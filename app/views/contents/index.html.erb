@@ -1,11 +1,9 @@
-<% provide(:title, 'User content') %>
-<h1> User contents </h1>
-<% if logged_in? && current_user?(@user) %>
-  <%= link_to new_user_content_url(@user) do %>
-    <div class="modalClick">Add new content</div>
-  <% end %>
-<% end %>
-<%= render @contents %>
+<div class="pageTitle">
+  <%= @user.username %> content
+</div>
+<div class="contentBox">
+  <%= render @contents %>
+</div>
 <div class="paginationSite">
   <%= link_to path_to_prev_page(@contents) do %>
     <div class="modalClick pageButton">

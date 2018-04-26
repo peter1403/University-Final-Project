@@ -2,25 +2,25 @@ class ContentsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @contents = @user.contents.page(params[:page]).per(3)
+    @contents = @user.contents.page(params[:page]).per(4)
   end
 
   def random
     rndm = rand(1..Content.count)
     @content = Content.find(rndm)
     @comment = Comment.new
-    @comments = @content.comments.page(params[:page]).per(3)
+    @comments = @content.comments.page(params[:page]).per(4)
     render 'show'
   end
 
   def top
-    @contents = Content.unscoped.all.order!(cached_weighted_score: :desc).page(params[:page]).per(3)
+    @contents = Content.unscoped.all.order!(cached_weighted_score: :desc).page(params[:page]).per(4)
   end
 
   def show
     @content = Content.find(params[:id])
     @comment = Comment.new
-    @comments = @content.comments.page(params[:page]).per(3)
+    @comments = @content.comments.page(params[:page]).per(8)
   end
 
   def create

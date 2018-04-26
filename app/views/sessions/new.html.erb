@@ -1,13 +1,15 @@
 <% provide(:title, "Login") %>
-<div>
-  <%= simple_form_for(:session, url: login_url) do |f| %>
-    <%= f.input :username, label: 'Username', placeholder: 'Username' %>
-    <%= f.input :password, label: 'Password', placeholder: 'Password' %>
-    <%= f.input :remember_me, as: :boolean,
-    checked_value: true, unchecked_value: false, label: 'Remember Me' %>
-    <%= f.button :submit %>
+<div class="formBoxContainer">
+  <div class="formBox">
+    <%= simple_form_for(:session, url: login_url) do |f| %>
+      <%= f.input :username, label: 'Username', placeholder: 'Username', :error => false %>
+      <%= f.input :password, label: 'Password', placeholder: 'Password', :error => false %>
+      <%= f.input :remember_me, as: :boolean,
+      checked_value: true, unchecked_value: false, label: 'Remember Me' %>
+      <%= f.button :submit %>
+  </div>
+  <%= link_to signup_url do %>
+    <div class="addFormButtons">Go to signup</div>
+  <% end %>
   <% end %>
 </div>
-<%= link_to signup_url do %>
-  <div class="">Go to signup</div>
-<% end %>

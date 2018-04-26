@@ -1,7 +1,11 @@
 <% provide(:title, 'User Index') %>
-<h1>All users</h1>
+<div class="pageTitle">
+  All Users
+</div>
 
-<%= render @users %>
+<div class="contentBox">
+  <%= render @users %>
+</div>
 <div class="paginationSite">
   <%= link_to path_to_prev_page(@users) do %>
     <div class="modalClick pageButton">
