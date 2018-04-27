@@ -13,11 +13,11 @@
     <% end %>
   </div>
   <%= link_to user_contents_url(@user) do %>
-    <div class="modalClick contentButton">All contents</div>
+    <div style="background-color: $CORAL;" class="modalClick contentButton"><h3>View all user contents<h3></div>
   <% end %>
   <% if logged_in? && current_user?(@user) %>
     <%= link_to new_user_content_url(@user) do %>
-      <div class="modalClick contentButton">Add new content</div>
+      <div style="background-color: $EMBERS;" class="modalClick contentButton"><h3>Add new content</h3></div>
     <% end %>
   <% end %>
 </div>

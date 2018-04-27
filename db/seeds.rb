@@ -20,7 +20,7 @@ User.create!(username:  "Admin User Second",
             admin: true)
 
 30.times do |n|
-  name  = Faker::Name.name
+  name  = Faker::Name.first_name
   description = "I am user number #{n+4}"
   password = "password"
   User.create!(username:  name,
@@ -32,8 +32,8 @@ end
 users = User.order(:created_at).take(6)
 users.each do |user|
   4.times do |k|
-    name = Faker::RickAndMorty.character
-    desc = Faker::RickAndMorty.quote
+    name = Faker::Science.element
+    desc = Faker::StarWars.quote
     pic = File.open(Rails.root + "app/assets/images/contentpic#{rand(1..10)}.jpg")
     user.contents.create!(name: name, desc: desc, picture: pic)
     20.times do |z|

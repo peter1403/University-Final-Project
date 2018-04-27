@@ -5,7 +5,7 @@
       <%= f.input :name, label: 'Name', placeholder: 'Name', class: 'keyboardOpen', :error => false %>
       <%= f.input :desc, label: 'Description', placeholder: 'Description', :error => false %>
       <%= f.input :picture, accept: 'image/jpeg,image/gif,image/png',
-       label: "Add picture", :error => false %>
+       label: "Add picture", :error => false, input_html: { class: 'fileSelect'} %>
       <%= f.button :submit %>
   </div>
     <div class="errorBox">

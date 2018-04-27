@@ -2,6 +2,17 @@
 @import "bootstrap";
 
 /* site structure */
+$BLACK: #000000;
+$CHARCOAL: #373737;
+$PAPER:  #F4F4F4;
+$EGGSHELL:  #F5F5F5;
+$SILK:  #DCD030;
+$CORAL:  #FF533D;
+$EMBERS:  #B82601;
+$AQUA: #008F95;
+$NAVYBLUE:  #0F1626;
+$INK:  #062F4F;
+$PALEGOLD:  #C0B283;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -23,33 +34,28 @@ html, body, {
 }
 
 #fullPage{
-  background-color: grey;
   height: 100%;
+  background-color: $PAPER;
 }
 
 #mainNav {
-  background-color: black;
-  height: 11%;
-
+    height: 11%;
 }
 
-#navToggle {
-
+.navToggle {
+  background-color: $PALEGOLD;
+  color: $CHARCOAL;
 }
 
-.navOpen {
-  background-color: black;
-  color: white;
-}
 .navButton {
-  background-color: yellow;
   float: left;
   width: 50%;
   height: 100%;
+  background-color: $CHARCOAL;
+  color: $PALEGOLD;
 }
 
 #mainBody {
-  background-color: red;
   height: 89%;
   position: relative;
 }
@@ -71,15 +77,21 @@ html, body, {
 .navMenuButton {
   float: left;
   width: 49%;
-  background-color: rgba(black, 0.3);
-  height: 38%;
+  background-color: rgba(black, 0.9);
+  height: 35%;
   margin: 0.5%;
   text-align: center;
+  color: $PALEGOLD;
+  z-index: 1000;
 }
 
 .HoverBorder {
-  border-style: solid;
-  border: white, 5px;
+  cursor: progress;
+  box-shadow: 0 0 10px 10px $EMBERS;
+  -webkit-transition: all 3.5s ease;
+    -moz-transition: all 3.5s ease;
+    -o-transition: all 3.5s ease;
+    transition: all 3.5s ease;
 }
 
 a {
@@ -88,8 +100,7 @@ a {
 }
 
 a:hover {
-  color: black;
-  border-color: white;
+  text-decoration: none;
 }
 
 /* picture css */
@@ -97,7 +108,6 @@ a:hover {
 #pictureBox {
   width: 100%;
   height: 100%;
-  background-color: green;
 }
 
 #showContain {
@@ -112,8 +122,16 @@ a:hover {
 }
 
 .nextPrev {
+  padding-top: 50%;
   height: 50%;
   width: 100%;
+  color: $CHARCOAL;
+  border: 2px solid $PALEGOLD;
+}
+
+.nextPrev h3 {
+  text-align: center;
+  padding: 1%;
 }
 
 #shownPic {
@@ -124,7 +142,7 @@ a:hover {
 #pictureMenu {
   width: 100%;
   height: 15%;
-  background-color: gray;
+  background-color: $CHARCOAL;
 }
 
 #pictureBox img {
@@ -140,48 +158,50 @@ a:hover {
   float: left;
   width: 25%;
   height: 100%;
-  background-color: blue;
-  border-right: 1px solid black;
+  border-right: 2px solid $PALEGOLD;
+  color: $PALEGOLD;
+}
+
+.pictureMenuButton p {
+  padding-top: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 #picInfo {
-  width: 40%;
+  width: 45%;
 }
 #picRating {
-  width: 10%;
+  width: 30%;
+}
+
+#ratingInfo {
 }
 
 #voteUpDiv {
-  height: 50%;
+  height: 100%;
+  width: 50%;
+  float: left;
+  color: white;
+  background-color: $AQUA;
+  padding-top: 5%;
+  padding-left: 10%;
+  font-size: 2em;
 }
 
 #voteDownDiv {
-  height: 50%;
+  height: 100%;
+  width: 50%;
+  float: left;
+  color: white;
+  background-color: $CORAL;
+  padding-top: 5%;
+  padding-left: 8%;
+  font-size: 2em;
 }
 
 .picVote {
   height: 100%;
-}
-
-.userIndex {
-  width: 48%;
-  height: 45%;
-  margin: 10px;
-  float: left;
-}
-
-.indexPic {
-  height: 100%;
-  width: 50%;
-  background-color: gray;
-  background-size: contain;
-  float: left;
-}
-
-.indexPic img {
-  object-fit: fill;
-  height: 100%;
-  width: 100%;
 }
 
 .fullImage {
@@ -216,7 +236,6 @@ a:hover {
 #commentSection {
   width: 100%;
   height: 100%;
-  background-color: purple;
   display: none;
 }
 
@@ -239,29 +258,44 @@ a:hover {
 }
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+h1 {
+  text-align: left;
+  margin: 0px;
+  padding: 10px;
+  font-size: 3em;
 }
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+.menuText {
   text-align: center;
+  margin: auto;
+  padding: auto;
+}
+
+div {
+  text-decoration: none;
 }
 
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
   text-align: center;
-  font-weight: normal;
-  color: #777;
+  margin: 0px;
+  padding: 5px;
+  font-size: 2.5em;
+  text-decoration: none;
+}
+
+h3 {
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+  font-size: 2em;
+  text-decoration: none;
 }
 
 p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 .indexUser {
@@ -272,8 +306,11 @@ p {
 .pageTitle {
   height: 9%;
   width: 100%;
-  background-color: purple;
   top: 0;
+}
+
+.pageTitle text {
+  font-size: 20%;
 }
 
 .contentBox {
@@ -281,65 +318,119 @@ p {
   width: 100%;
 }
 
+/* User index*/
+
+.userInfo {
+  float: left;
+  padding-left: 5px;
+  width: 48%;
+  height: 100%;
+}
+
+.userIndex {
+  width: 48%;
+  height: 45%;
+  margin: 10px;
+  float: left;
+  box-shadow: 3px 3px 5px 0px $CHARCOAL;
+}
+
+.indexPic {
+  height: 100%;
+  width: 50%;
+  background-color: gray;
+  background-size: contain;
+  float: left;
+}
+
+.indexPic img {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+
+.infoDesc {
+  height: 75%;
+  width: 100%;
+  border-bottom: 1px solid $PALEGOLD;
+  padding-top: 5px;
+}
+
+.infoTitle {
+  height: 15%;
+  width: 100%;
+  border-bottom: 1px solid $PALEGOLD;
+}
+
+.infoScore {
+  height: 10%;
+  width: 100%;
+  border-bottom: $PALEGOLD;
+}
 /* userPage */
 
 .userContentBox {
   width: 100%;
   height: 50%;
+  margin-top: 1%;
 }
 
 .userInfoBox {
   width: 100%;
   height: 50%;
+  border-bottom: 1px solid $PALEGOLD;
 }
 
 .userInfoBlock {
   width: 50%;
   height: 100%;
   float: left;
-  border: 1px solid black;
 }
 
 .userInfoButton {
   width: 45%;
-  height: 45%;
+  height: 42%;
   float: left;
   margin: 10px;
-  border: 1px solid black;
+  color: $PALEGOLD;
+  background-color: $CHARCOAL;
+  padding-left: 12%;
+  padding-top: 6%;
 }
 
 .userInfoBlockSection {
-  height: 65%;
+  height: 75%;
+  width: 95%;
   margin: 10px;
   float: left;
 }
 
 #follow_form {
   width: 95%;
-  height: 30%;
+  height: 25%;
   float: left;
   margin: 5px;
 }
 
 .followDButton {
   width: 100%;
-  height: 60px;
+  height: 100%;
 }
 
 .formFollow {
   color: white;
-  background-color: blue;
+  background-color: $INK;
   font-size: 30px;
 }
 
 .formUnFollow {
-  background-color: red;
+  background-color: $CORAL;
   color: black;
   font-size: 30px;
 }
 
 .contentPreviewBox {
-  height: 99%;
+  height: 90%;
   width: 48%;
   float: left;
   margin: 2px;
@@ -347,8 +438,9 @@ p {
 
 .picPreviewContain {
   width: 48%;
-  height: 49%;
+  height: 48%;
   margin: 2px;
+  margin-left: 1.5%;
   float: left;
 }
 
@@ -358,9 +450,17 @@ p {
 }
 
 .contentButton {
-  height: 80%;
-  width: 25%;
+  height: 85%;
+  width: 22%;
+  margin-left: 2.5%;
   float: left;
+  padding: 5%;
+  color: $PALEGOLD;
+  background-color: $CHARCOAL;
+}
+
+.contentButton h3 {
+  text-align: center;
 }
 
 /* forms */
@@ -395,9 +495,10 @@ p {
 }
 
 .formBox .btn {
-  height: 25%;
-  width: 35%;
-  margin: 10px;
+  height: 30%;
+  width: 36%;
+  background-color: $CHARCOAL;
+  color: $PALEGOLD;
 }
 
 .fileSelect {
@@ -417,7 +518,12 @@ p {
   height: 25%;
   margin: 10px;
   float: left;
-  border: 1px solid black;
+  background-color: $INK;
+  text-align: center;
+  font-size: 2em;
+  padding: auto;
+  padding-top: 3%;
+  color: $PAPER;
 }
 
 #session_remember_me {
@@ -437,13 +543,11 @@ p {
 .comments {
   height: 75%;
   width: 100%;
-  background-color: white;
 }
 
 .commentForm {
   height: 25%;
   width: 100%;
-  background-color: silver;
 }
 
 .commentForm form {
@@ -451,39 +555,39 @@ p {
   width: 100%;
 }
 
-.commentForm form div {
-  height: 100%;
+.commentForm form div{
   width: 50%;
-  margin: 2px;
+  height: 100%;
+  margin-bottom: 0;
 }
 
-.commentForm form div input {
-  height: 90%;
-  width: 90%;
-  margin: 2px;
+#commentText {
+  height: 100%;
+  width: 100%;
 }
 
-.commentForm form input {
-  height: 90%;
-  width: 45%;
-  margin-left: 2px;
+.commentForm .btn {
+  width: 50%;
+  height: 100%;
 }
 .comment {
   height: 12.5%;
   width: 100%;
-  background-color: pink;
+  border-bottom: 1px solid rgba($PALEGOLD, 0.3);
 }
 
 .commentTxt {
   width: 65%;
   height: 100%;
   float: left;
+  border-right: 1px solid $PALEGOLD;
 }
 
 .commentUsername {
   width: 15%;
   height: 100%;
   float: left;
+  border-right: 1px solid $PALEGOLD;
 }
 
 .commentTime {
@@ -498,10 +602,36 @@ p {
   width: 100%;
   position: fixed;
   bottom: 0;
+  z-index: 0;
 }
 
 .pageButton {
   width: 50%;
   height: 100%;
   float: left;
+  background-color: $CHARCOAL;
+  color: $PALEGOLD;
+  padding: 1%;
+  border: 2px solid $PALEGOLD;
+}
+
+.siteBox {
+  height: 80%;
+  width: 30%;
+  margin: 1.6%;
+  float: left;
+  color: $PALEGOLD;
+  background-color: $CHARCOAL;
+  padding-top: 2%;
+}
+
+.siteBox h3 {
+  text-align: center;
+  font-size: 3em;
+  border-bottom: 1px solid $PALEGOLD;
+}
+
+.siteBox p {
+  text-align: center;
+  font-size: 1.5em;
 }

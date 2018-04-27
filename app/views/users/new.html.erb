@@ -14,13 +14,10 @@
       <%= f.button :submit %>
   </div>
   <%= link_to login_url do %>
-    <div class="addFormButtons">Go to login</div>
+    <div class="modalClick addFormButtons">Go to login</div>
   <% end %>
     <div class="errorBox">
       <%= render 'shared/error_messages', object: f.object %>
     </div>
-  <% end %>
-  <%= link_to login_url do %>
-    <div class="addFormButtons">Go to login</div>
   <% end %>
 </div>

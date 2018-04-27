@@ -35,7 +35,7 @@
     </div>
 
     <script>
-    var delay=2700, setTimeoutConst;
+    var delay=3500, setTimeoutConst;
     $('#navToggle').hover (function() {
       div = $(this);
       div.addClass("HoverBorder");
@@ -43,7 +43,7 @@
          $('#navMenu').slideToggle("fast", function() {
 
          });
-         div.toggleClass("navOpen")
+         div.toggleClass("navToggle")
        }, delay);
      }, function(){
        div.removeClass("HoverBorder");
@@ -55,7 +55,7 @@
       $('#navMenu').slideToggle("fast", function() {
 
       });
-      div.toggleClass("navOpen")
+      div.toggleClass("navToggle")
       clearTimeout(setTimeoutConst );
     });
 
@@ -74,7 +74,7 @@
        clearTimeout(setTimeoutConst );
     });
 
-    $('input[type="text"], textarea').keyboard({
+    $('input[type="text"], textarea, input[type="password"]').keyboard({
 
     // set this to ISO 639-1 language code to override language set by the layout
     // http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes

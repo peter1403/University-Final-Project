@@ -1,18 +1,7 @@
 <div class="pageTitle">
-  Recently uploaded
+  <h2>Recently uploaded</h2>
 </div>
 <div class="contentBox">
   <%= render @contents %>
 </div>
-<div class="paginationSite">
-  <%= link_to path_to_prev_page(@contents) do %>
-    <div class="modalClick pageButton">
-      Prev
-    </div>
-  <% end %>
-  <%= link_to path_to_next_page(@contents) do %>
-    <div class="modalClick pageButton">
-      Next
-    </div>
-  <% end %>
-</div>
+<%= render 'shared/pagination', items: @contents %>

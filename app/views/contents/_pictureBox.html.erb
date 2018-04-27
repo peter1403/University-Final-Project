@@ -7,11 +7,11 @@
         @content.id + 1
       end}" do %>
       <div class="modalClick nextPrev">
-        Prev
+        <h3>Prev</h3>
       </div>
     <% end %>
     <div class="nextPrev viewFullSize">
-      View full size
+      <h3>View full size</h3>
     </div>
   </div>
   <div id="shownPic">
@@ -25,12 +25,12 @@
         Content.count
       end}" do %>
         <div class="modalClick nextPrev">
-          Next
+          <h3>Next</h3>
         </div>
     <% end %>
     <%= link_to user_url(@content.user) do %>
       <div class="modalClick nextPrev">
-        <%= @content.user.username %>
+        <h3><%= @content.user.username %></h3>
       </div>
     <% end %>
   </div>

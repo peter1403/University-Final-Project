@@ -11,11 +11,15 @@
     <% end %>
   <% end %>
   <div class="userInfo">
-    <h3><%= user.username %></h3>
-    <p><%= user.description %></p>
+    <div class="infoTitle">
+      <h3><%= user.username %></h3>
+    </div>
+    <div class="infoDesc">
+      <p><%= user.description %></p>
+    </div>
     <% if logged_in? && current_user.admin? && !current_user?(user) %>
-    | <p><%= link_to "delete", user, method: :delete,
-                      data: { confirm: "You sure?" } %></p>
+    <div class="infoScore"<p><%= link_to "delete", user, method: :delete,
+                      data: { confirm: "You sure?" } %></p></div>
     <% end %>
   </div>
 </div>

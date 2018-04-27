@@ -1,13 +1,14 @@
 <div id="mainNav"class="container-fluid">
-  <div class="navButton"id="navToggle">PicturePerfect</div>
+  <div class="navButton"id="navToggle"><h1>PicturePerfect</h1></div>
   <% if logged_in? %>
     <%= link_to current_user do %>
       <div class="navButton modalClick">
-        <%=current_user.username%></div>
+        <h1><%=current_user.username%><h1>
+      </div>
     <% end %>
   <% else %>
     <%= link_to login_url do %>
-      <div class="navButton modalClick">Login</div>
+      <div class="navButton modalClick"><h1>Login</h1></div>
     <% end %>
   <% end %>
 </div>

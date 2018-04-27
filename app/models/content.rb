@@ -4,7 +4,9 @@ class Content < ApplicationRecord
   has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
-  validates :name, presence: true
+  validates :name, presence: true, length: {maximum: 40}
+  validates :desc, length: {maximum: 300}
+  validates :picture, presence: true
   mount_uploader :picture, PictureUploader
 
   def next

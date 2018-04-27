@@ -5,8 +5,15 @@
       </div>
     <% end %>
   <div class="userInfo">
-    <h3><%= content.name %></h3>
-    <p><%= content.desc %></p>
-    <p><%= content.weighted_score %></p>
+    <div class="infoTitle">
+      <h3><%= content.name %></h3>
+    </div>
+    <div class="infoDesc">
+      <p><%= truncate(content.desc, length: 250) %></p>
+    </div>
+    <div class="infoScore">
+      <p style="float:left;"><%= content.weighted_score %></p>
+      <p style="float:right;"><%= content.user.username %></p>
+    </div>
   </div>
 </div>

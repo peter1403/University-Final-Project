@@ -29,6 +29,8 @@ class ContentsController < ApplicationController
       # Handle a successful save.
       redirect_to @content
     else
+      @user = current_user
+      @content = Content.new(:user=>@user)
       render 'new'
     end
   end

@@ -9,7 +9,7 @@
     </div>
     <div class="commentForm">
       <%= simple_form_for [@content, @comment] do |f| %>
-        <%= f.input :content_text, label: false, placeholder: 'Enter comment', input_html: { class: 'commentText'}%>
+        <%= f.input :content_text, label: false, placeholder: 'Enter comment', input_html: { id: 'commentText'}%>
         <%= f.button :submit%>
       <% end %>
     </div>
@@ -17,12 +17,12 @@
   <div style="height: 15%; width: 100%;">
     <%= link_to path_to_prev_page(@comments) do %>
       <div class="modalClick pageButton">
-        Prev
+        <h2>Prev</h2>
       </div>
     <% end %>
     <%= link_to path_to_next_page(@comments) do %>
       <div class="modalClick pageButton">
-        Next
+        <h2>Next</h2>
       </div>
     <% end %>
   </div>

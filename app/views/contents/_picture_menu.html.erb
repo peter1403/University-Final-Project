@@ -1,12 +1,10 @@
 <div id="pictureMenu">
   <div class="pictureMenuButton" id="picInfo">
-    <%= @content.name %>
-    <%= @content.desc %>
+    <p style="float:left;"><%= @content.name %> |  </p>
+    <p id="ratingInfo"><%= @content.weighted_score %></p>
+    <p><%= @content.desc %></p>
   </div>
   <div class="pictureMenuButton" id="picRating">
-    <%= @content.weighted_score %>
-  </div>
-  <div class="pictureMenuButton">
     <% if logged_in? %>
       <div id="voteUpDiv">
         <% if current_user.voted_up_on? @content %>
@@ -27,6 +25,6 @@
     <% end %>
   </div>
   <div class="pictureMenuButton" id="commentButton">
-    Comment section
+    <p>Comment section</p>
   </div>
 </div>

@@ -1,21 +1,10 @@
 <% provide(:title, @title) %>
-<div class="pageTitle"><%= @title %></div>
+<div class="pageTitle"><h2><%= @title %></h2></div>
 <% if @users.any? %>
   <div class="contentBox">
     <%= render @users %>
   </div>
-  <div class="paginationSite">
-    <%= link_to path_to_prev_page(@users) do %>
-      <div class="modalClick pageButton">
-        Prev
-      </div>
-    <% end %>
-    <%= link_to path_to_next_page(@users) do %>
-      <div class="modalClick pageButton">
-        Next
-      </div>
-    <% end %>
-  </div>
+  <%= render 'shared/pagination', items: @users %>
 <% else %>
   <p>No users to show!</p>
 <% end %>
