@@ -11,3 +11,4 @@ if Rails.env.production?
   config.fog_public     = false                                                 # optional, defaults to true
   config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
 end
+end
