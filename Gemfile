@@ -19,7 +19,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts_as_votable'
 gem 'virtual_keyboard'
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
