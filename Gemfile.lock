@@ -407,6 +407,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   faker
   fog (= 1.42)
+  fog-aws
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
