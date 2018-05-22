@@ -42,17 +42,33 @@ html, body, {
     height: 11%;
 }
 
-.navToggle {
-  background-color: $PALEGOLD;
-  color: $CHARCOAL;
-}
-
 .navButton {
   float: left;
   width: 50%;
   height: 100%;
   background-color: $CHARCOAL;
   color: $PALEGOLD;
+  border-right: 2px solid $PALEGOLD;
+}
+
+#navProfile {
+  width: 25%;
+}
+
+#navToggle {
+  cursor: pointer;
+}
+
+.optionsButton {
+  width: 12.5%;
+  cursor: pointer;
+  font-size: 1.4em;
+  text-align: center;
+  padding-top: 0.3%;
+}
+
+.optionsButton p {
+  text-align: center;
 }
 
 #mainBody {
@@ -86,7 +102,7 @@ html, body, {
 }
 
 .HoverBorder {
-  cursor: progress;
+  cursor: pointer;
   box-shadow: 0 0 10px 10px $EMBERS;
   -webkit-transition: all 3.5s ease;
     -moz-transition: all 3.5s ease;
@@ -184,8 +200,6 @@ a:hover {
   float: left;
   color: white;
   background-color: $AQUA;
-  padding-top: 5%;
-  padding-left: 10%;
   font-size: 2em;
 }
 
@@ -195,13 +209,14 @@ a:hover {
   float: left;
   color: white;
   background-color: $CORAL;
-  padding-top: 5%;
-  padding-left: 8%;
   font-size: 2em;
 }
 
 .picVote {
   height: 100%;
+  weight: 100%;
+  padding-left: 15%;
+  padding-top: 7%;
 }
 
 .fullImage {
@@ -394,8 +409,10 @@ p {
   margin: 10px;
   color: $PALEGOLD;
   background-color: $CHARCOAL;
-  padding-left: 12%;
-  padding-top: 6%;
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 5%;
+  border: 4px solid $PALEGOLD;
 }
 
 .userInfoBlockSection {
@@ -454,9 +471,12 @@ p {
   width: 22%;
   margin-left: 2.5%;
   float: left;
-  padding: 5%;
+  padding-top: 5%;
+  padding-left: 1%;
+  padding-right: 1%;
   color: $PALEGOLD;
   background-color: $CHARCOAL;
+  border: 4px solid $PALEGOLD;
 }
 
 .contentButton h3 {

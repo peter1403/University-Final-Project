@@ -2,7 +2,7 @@
   <div class="navButton"id="navToggle"><h1>PicturePerfect</h1></div>
   <% if logged_in? %>
     <%= link_to current_user do %>
-      <div class="navButton modalClick">
+      <div class="navButton modalClick" id="navProfile">
         <h1><%=current_user.username%><h1>
       </div>
     <% end %>
@@ -11,4 +11,10 @@
       <div class="navButton modalClick"><h1>Login</h1></div>
     <% end %>
   <% end %>
+  <div id="hoverOption"class="navButton optionsButton">
+    Hoverclick: <p id="hoverState"></p>
+  </div>
+  <div id="keyboardOption"class="navButton optionsButton">
+    Virtual Keyboard: <p id="keyboardState"></p>
+  </div>
 </div>

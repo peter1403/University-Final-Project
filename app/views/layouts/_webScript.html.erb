@@ -1,0 +1,79 @@
+<script>
+var delay=3500, setTimeoutConst;
+if (Cookies.get('modal') === undefined) {
+  Cookies.set('modal','1');
+}
+
+if (Cookies.get('virt') === undefined) {
+  Cookies.set('virt','1');
+}
+
+if (Cookies.get('modal') === '1') {
+  $('#hoverState').html("ON");
+} else {
+  $('#hoverState').html("OFF");
+}
+
+if (Cookies.get('virt') === '1') {
+  $('#keyboardState').html("ON");
+} else {
+  $('#keyboardState').html("OFF");
+}
+
+$('#hoverOption').click (function(){
+  if(Cookies.get('modal') === '1') {
+    Cookies.set('modal', '0');
+    $('#hoverState').html("OFF");
+  } else {
+    Cookies.set('modal', '1');
+    $('#hoverState').html("ON");
+  }
+});
+$('#keyboardOption').click (function(){
+  if(Cookies.get('virt') === '1') {
+    Cookies.set('virt', '0');
+    $('#keyboardState').html("OFF");
+  } else {
+    Cookies.set('virt', '1');
+    $('#keyboardState').html("ON");
+  }
+});
+if(Cookies.get('modal') === '1') {
+  $('#navToggle').hover (function() {
+    div = $(this);
+    div.addClass("HoverBorder");
+     setTimeoutConst = setTimeout(function(){
+       $('#navMenu').slideToggle("fast", function() {
+
+       });
+       div.toggleClass("navToggle");
+     }, delay);
+   }, function(){
+     div.removeClass("HoverBorder");
+     clearTimeout(setTimeoutConst );
+  });
+  $('.modalClick').hover (function() {
+    div = $(this);
+    div.addClass("HoverBorder");
+    $('.modalClick').click (function() {
+       clearTimeout(setTimeoutConst );
+    });
+     setTimeoutConst = setTimeout(function(){
+       window.location.href =
+        div.parent().attr("href")
+     }, delay);
+   }, function(){
+     div.removeClass("HoverBorder");
+     clearTimeout(setTimeoutConst );
+  });
+}
+
+$('#navToggle').click (function(){
+  div = $(this);
+  $('#navMenu').slideToggle("fast", function() {
+
+  });
+  div.toggleClass("navToggle");
+  clearTimeout(setTimeoutConst );
+});
+</script>
