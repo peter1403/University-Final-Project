@@ -12,54 +12,38 @@
 </div>
 <%= render 'picture_menu' %>
 <script>
-if(typeof comment == 'undefined'){
-  comment = 0
+if(Cookies.get('modal') === '1') {
+  $('#commentButton').hover (function() {
+    div = $(this);
+    div.addClass("HoverBorder");
+     setTimeoutConst = setTimeout(function(){
+       $('#commentSection').toggle();
+       $('#pictureBox').toggle();
+       div.toggleClass("navOpen")
+     }, delay);
+   }, function(){
+     div.removeClass("HoverBorder");
+     clearTimeout(setTimeoutConst );
+  });
+
+  $('.viewFullSize').hover (function() {
+    div = $(this);
+    div.addClass("HoverBorder");
+     setTimeoutConst = setTimeout(function(){
+       $('.fullImage').toggle();
+     }, delay);
+   }, function(){
+     div.removeClass("HoverBorder");
+     clearTimeout(setTimeoutConst );
+  });
 }
-if(comment == 1) {
-  $('#pictureBox').toggle();
-  $('#commentSection').toggle();
-  $('#commentButton').toggleClass("navOpen")
-}
-$('#commentButton').hover (function() {
-  div = $(this);
-  div.addClass("HoverBorder");
-   setTimeoutConst = setTimeout(function(){
-     if(comment==0) {
-       comment = 1
-     } else {
-       comment = 0
-     }
-     $('#commentSection').toggle();
-     $('#pictureBox').toggle();
-     div.toggleClass("navOpen")
-   }, delay);
- }, function(){
-   div.removeClass("HoverBorder");
-   clearTimeout(setTimeoutConst );
-});
 
 $('#commentButton').click (function(){
-  if(comment==0) {
-    comment = 1
-  } else {
-    comment = 0
-  }
   div = $(this);
   $('#commentSection').toggle();
   $('#pictureBox').toggle();
   div.toggleClass("navOpen")
   clearTimeout(setTimeoutConst );
-});
-
-$('.viewFullSize').hover (function() {
-  div = $(this);
-  div.addClass("HoverBorder");
-   setTimeoutConst = setTimeout(function(){
-     $('.fullImage').toggle();
-   }, delay);
- }, function(){
-   div.removeClass("HoverBorder");
-   clearTimeout(setTimeoutConst );
 });
 
 $('.viewFullSize').click (function(){
