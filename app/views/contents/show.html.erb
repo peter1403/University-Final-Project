@@ -12,11 +12,25 @@
 </div>
 <%= render 'picture_menu' %>
 <script>
+if(typeof comment == 'undefined'){
+  comment = 0
+}
+if(comment == 1) {
+  $('#pictureBox').toggle();
+  $('#commentSection').toggle();
+  $('#commentButton').toggleClass("navOpen")
+}
+
 if(Cookies.get('modal') === '1') {
   $('#commentButton').hover (function() {
     div = $(this);
     div.addClass("HoverBorder");
      setTimeoutConst = setTimeout(function(){
+       if(comment==0) {
+       comment = 1
+     } else {
+       comment = 0
+     }
        $('#commentSection').toggle();
        $('#pictureBox').toggle();
        div.toggleClass("navOpen")
@@ -40,6 +54,11 @@ if(Cookies.get('modal') === '1') {
 
 $('#commentButton').click (function(){
   div = $(this);
+  if(comment==0) {
+       comment = 1
+     } else {
+       comment = 0
+     }
   $('#commentSection').toggle();
   $('#pictureBox').toggle();
   div.toggleClass("navOpen")

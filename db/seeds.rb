@@ -31,13 +31,13 @@ end
 
 users = User.order(:created_at).take(6)
 users.each do |user|
-  4.times do |k|
+  3.times do |k|
     name = Faker::Science.element
-    desc = Faker::StarWars.quote
+    desc = Faker::Lorem.sentence(3)
     pic = File.open(Rails.root + "app/assets/images/contentpic#{rand(1..10)}.jpg")
     user.contents.create!(name: name, desc: desc, picture: pic)
     20.times do |z|
-      content = Faker::Lorem.sentence(4)
+      content = Faker::Lorem.sentence(5)
       Content.find(k+1).comments.create!(content_text: content,
          user_id: user.id)
     end
